@@ -1,55 +1,32 @@
-const nombres = []; // Array para almacenar los nombres
+const nombres = []; 
 const lista1 =[];
 const lista2 =[];
-var listaAmigos = [];
-
-
-
-
-
-
-
-
-
-
-
-
+var lista = []; // Array lista de amigos
 
 function agregarAmigo(nombre) {
+  // Obtener ontenedor de la lista de amigos Ul
+  const listaContainer = document.getElementById("listaAmigos");  
+  
+  //crear elemento li
+  const li = document.createElement("li");
 
-
-  // Validamos si el nombre contiene una coma
-  if (nombre.includes(",")) {
-    const listaNombres = nombre.split(",").map(nombre => nombre.trim());
-
-    listaNombres.forEach(element => {
-      // verificar si el nombre esta vacío
-        if(element === ""){
-            alert("sin nombre  vacio");
-        }else{
-            listaAmigos.push(element);
-        }
-    });
-    //listaAmigos.push(nombre);
-    console.log(listaAmigos);
-  } else {
-    if(nombre == ""){
-        alert("campo vacio");
-    }else{
-        listaAmigos.push(nombre);
-    }
-        console.log(listaAmigos);
+  
+  if(nombre == ""){
+      alert("campo vacio");
+  }else{
+    // añadir amigo al array de amigos
+    lista.push(nombre);
+    // añadir el nombre a li
+    li.textContent = nombre +" agregado correctamente";
+    // limpiar lista
+    listaContainer.innerHTML= "";
+    // añadir nombre al li
+    listaContainer.appendChild(li);     
+        
+    console.log(lista);  
   }
-
-
-  const listaAmigos = document.getElementById("listaAmigos");
-  listaAmigos.innerHTML= "";
-  nombres.forEach(e=>{
-    const li = document.createElement("li");
-    li.textContent = e;
-    listaAmigos.appendChild(li);
-    
-  });
+        
+ 
 }
 
 
