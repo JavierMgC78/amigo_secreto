@@ -2,18 +2,16 @@
 var lista = []; // Array de amigos
 var amigoIngresado = new Audio("assets/moneda.mp3");
 var inptIngresareAmigo = document.getElementById('amigo');
+var listaContainer = document.getElementById("listaAmigos"); 
+var verAmigoSeleccionado = document.getElementById("amigoSeleccionado");
 
 /************
  * FUNCIONES
  ************/
 
 function agregarAmigo(nombre) {
-  // Obtener contenedor de la lista de amigos Ul
-  const listaContainer = document.getElementById("listaAmigos");  
-  
   //crear elemento li
   const li = document.createElement("li");
-
   
   if(nombre == ""){
       alert("campo vacio");
@@ -22,8 +20,7 @@ function agregarAmigo(nombre) {
     lista.push(nombre);
     // añadir el nombre a li
     li.textContent = nombre +" agregado correctamente";
-    // limpiar lista
-    listaContainer.innerHTML= "";
+
     // añadir nombre al li
     listaContainer.appendChild(li);     
         
@@ -45,7 +42,14 @@ return num;
 function sortearAmigo(){
   if(lista.length > 1){
       let amigoSeleccionado = seleccionarAmigo(1, lista.length - 1);
+
+      const amigo = document.createElement("h2");
+      amigo.innerText = lista[amigoSeleccionado]
+      
+      verAmigoSeleccionado.appendChild(amigo);
       console.log(lista[amigoSeleccionado]);
+
+
       lista.splice(amigoSeleccionado, 1);
     }else if( lista.length == 1){
       console.log(lista[0]);
