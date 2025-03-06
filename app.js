@@ -24,37 +24,31 @@ function agregarAmigo(nombre) {
     listaContainer.appendChild(li);     
         
     console.log(lista);  
+    document.getElementById('amigo').value = "";
   }
         
  
 }
 
-
-function aleatorio(min, max){
+function seleccionarAmigo(min, max){
 let num = Math.floor(Math.random() * (max - min + 1)) + min;
 console.log(num);
 return num;
 }
 
 function sortearAmigo(){
+  if(lista.length > 1){
+      let amigoSeleccionado = seleccionarAmigo(1, lista.length - 1);
+      console.log(lista[amigoSeleccionado]);
+      lista.splice(amigoSeleccionado, 1);
+    }else if( lista.length == 1){
+      console.log(lista[0]);
+      lista.splice(0, 1);
 
-  while(nombres.length >2){
+    }else if (lista.length == 0){
+      console.log ("ya no hay más amigos para sortear")
 
-  nombres.splice(nombres.length, 1)
 
-  //Seleccionar una persona
-  let persona = aleatorio(1,nombres.length);
-  lista1.push(nombres[persona]);
-  console.log("persona: " + lista1[persona]);
+    }
 
-  // eliminar a la persona seleccionda del array original para que no se pueda escoger a si mismo
-  nombres.splice(persona, 1);
-
-  // seleccionar su amigo amigo
-  let amigo = aleatorio(1,nombres.length);
-
-  lista2.push(nombres[amigo]);
-  console.log("amigo: " +lista2[amigo]);
-  console.log(nombres);
   }
-}
