@@ -1,10 +1,14 @@
-const nombres = []; 
-const lista1 =[];
-const lista2 =[];
-var lista = []; // Array lista de amigos
+// VARIABLES GLOBALES
+var lista = []; // Array de amigos
+var amigoIngresado = new Audio("assets/moneda.mp3");
+var inptIngresareAmigo = document.getElementById('amigo');
+
+/************
+ * FUNCIONES
+ ************/
 
 function agregarAmigo(nombre) {
-  // Obtener ontenedor de la lista de amigos Ul
+  // Obtener contenedor de la lista de amigos Ul
   const listaContainer = document.getElementById("listaAmigos");  
   
   //crear elemento li
@@ -24,7 +28,9 @@ function agregarAmigo(nombre) {
     listaContainer.appendChild(li);     
         
     console.log(lista);  
-    document.getElementById('amigo').value = "";
+    amigoIngresado.play();
+    inptIngresareAmigo.value = ""
+    
   }
         
  
