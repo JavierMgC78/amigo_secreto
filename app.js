@@ -8,7 +8,7 @@ var listaContainer = document.getElementById("listaAmigos");
 var amigoSeleccionadoContainer = document.getElementById("amigoSeleccionado");
 var ultimoSorteado = null; // Guarda el último amigo sorteado
 
-btnS.textContent = "turno de h"
+
 /**
  * Agrega el nombre de un amigo al array lista 
  * @param {String} nombre Nombre del amigo agregado
